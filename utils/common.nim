@@ -34,3 +34,18 @@ template findIt*(data, pred: untyped): int =
       result = i
       break
   result
+
+
+func isqrt*(x: int): int =
+  var q = 1
+  while q <= x:
+    q = q shl 2
+
+  var z = x
+  while q > 1:
+    q = q shr 2
+    let t = z - result - q
+    result = result shr 1
+    if t >= 0:
+      z = t
+      result += q
